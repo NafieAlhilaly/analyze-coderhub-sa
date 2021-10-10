@@ -26,7 +26,7 @@ const Home = () => {
     const [challengesData, setChallengesData] = useState([50, 31, 11, 98])
 
     useEffect(() => {
-        fetch("http://127.0.0.1:8000/challenges_data")
+        fetch("https://analyze-coderhub.herokuapp.com/challenges_data")
         .then(res => {
             return res.json();
         })
@@ -41,7 +41,7 @@ const Home = () => {
     }, [])
 
     useEffect(() => {
-        fetch("http://127.0.0.1:8000/top_users_data")
+        fetch("https://analyze-coderhub.herokuapp.com/top_users_data")
         .then(res => {
             return res.json();
         })

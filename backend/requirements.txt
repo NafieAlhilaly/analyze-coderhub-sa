@@ -1,4 +1,5 @@
-coderHub
+requests==2.25.1
 pandas
 fastapi
 gunicorn
+uvicorn

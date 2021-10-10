@@ -7,7 +7,7 @@ to make it easier to start analysing the data
 
 import pandas as pd
 import time
-from coderHub import CoderHub
+from coderhub import CoderHub
 import threading
 
 
