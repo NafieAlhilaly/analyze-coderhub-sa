@@ -1,0 +1,3 @@
+[submodule "analyze-coderhub-backend"]
+	path = analyze-coderhub-backend
+	url = https://github.com/NafieAlhilaly/analyze-coderhub-backend
