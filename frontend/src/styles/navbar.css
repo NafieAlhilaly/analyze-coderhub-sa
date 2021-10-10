@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css?family=Sofia");
+
+.navbar-1 h1 {
+    font-family: "Sofia";
+    color: tomato;
+}
+
+.navbar-1 .links {
+    margin-left: auto;
+}
+.navbar-1 a {
+    margin-left: 16px;
+    text-decoration: none;
+    color: gray;
+    padding: 6px;
+    width:auto;
+}
+.navbar-1 a:hover {
+    color: white;
+    background-color: tomato;
+    border-radius: 6px;
+}
+

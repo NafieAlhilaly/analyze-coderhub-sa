@@ -1,0 +1,24 @@
+.home-div {
+    margin-left: 25px;
+    margin-right: auto;
+    border: 2px solid black;
+}
+.home-div h1{
+    align-self: center;
+}
+
+.first-place-li {
+    background-color: gold;
+}
+
+.second-place-li {
+    background-color:silver;
+}
+
+.third-place-li {
+    background-color: burlywood;
+}
+
+.slow-tran {
+    transition: width 2s;
+}
