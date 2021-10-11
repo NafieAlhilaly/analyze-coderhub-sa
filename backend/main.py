@@ -19,7 +19,7 @@ app.add_middleware(
 )
 
 
-@app.get("/top_users_data")
+@app.get("/top10_users_data")
 async def root():
     top_users_data = stats.get_top_users_stats()
     return top_users_data.to_dict()
@@ -28,3 +28,8 @@ async def root():
 async def root():
     challenges = stats.get_challenges_stats()
     return challenges
+@app.get("/top1_users_data")
+async def root():
+    top_users_data = stats.get_top_users_stats()
+    top_users_data = top_users_data.drop_duplicates(subset=['language'])
+    return top_users_data.to_dict()

@@ -22,3 +22,7 @@
 .slow-tran {
     transition: width 2s;
 }
+.expand-btn {
+    height: 50px;
+    width: 30px;
+}

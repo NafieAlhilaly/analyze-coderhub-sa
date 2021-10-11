@@ -1,7 +1,7 @@
 import { Row , Card, Table} from "react-bootstrap";
 
 
-const Top1Table = ({langs, rank1PerLang, user_language_points, total_points}) => {
+const Top1Table = ({langs, rank1PerLang, total_points}) => {
     return (
         <Card className="shadow mb-1 shadow-lg rounded">
             <div className="list-group">
@@ -16,7 +16,7 @@ const Top1Table = ({langs, rank1PerLang, user_language_points, total_points}) =>
                         <tr>
                             <th>Language</th>
                             <th>Username</th>
-                            <th>Points</th>
+                            <th>Total points</th>
                         </tr>
                     </thead>
                     <tbody>

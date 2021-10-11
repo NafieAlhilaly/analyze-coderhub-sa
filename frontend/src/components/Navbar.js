@@ -15,8 +15,8 @@ const Navbar = () => {
                         {/* hide on small screen */}
                         <div className="mt-2 links d-none d-md-block ">
                             <a href="/"><i className="bi bi-house-door-fill"></i> Home</a>
-                            <a href="/"><i className="bi bi-info-circle"></i> About</a>
-                            <a href="/"><i className="bi bi-file-earmark-spreadsheet"></i> Downlaods</a>
+                            <a href="/about"><i className="bi bi-info-circle"></i> About</a>
+                            <a href="/downloads"><i className="bi bi-file-earmark-spreadsheet"></i> Downlaods</a>
                         </div>
 
                         {/*hide on medium and larger screens*/}
@@ -31,8 +31,8 @@ const Navbar = () => {
                         <div id="menu" className="card border border-dark d-block d-md-none">
                         <Row>
                             <a href="/"><i className="bi bi-house-door-fill"></i> Home</a>
-                            <a href="/"><i className="bi bi-info-circle"></i> About</a>
-                            <a href="/"><i className="bi bi-file-earmark-spreadsheet"></i> Downlaods</a>
+                            <a href="/about"><i className="bi bi-info-circle"></i> About</a>
+                            <a href="/downloads"><i className="bi bi-file-earmark-spreadsheet"></i> Downlaods</a>
                         </Row>
                         </div>
                     }
