@@ -1,7 +1,8 @@
+import io
 from fastapi import FastAPI
 from coderhub_stats import CoderHubStats
 from fastapi.middleware.cors import CORSMiddleware
-
+from fastapi.responses import StreamingResponse
 
 stats = CoderHubStats()
 app = FastAPI()
@@ -28,8 +29,48 @@ async def root():
 async def root():
     challenges = stats.get_challenges_stats()
     return challenges
+
 @app.get("/top1_users_data")
 async def root():
     top_users_data = stats.get_top_users_stats()
     top_users_data = top_users_data.drop_duplicates(subset=['language'])
     return top_users_data.to_dict()
+
+@app.get("/top10_file")
+def main():
+    """
+    
+    prepare top10 users sheet file to be downlaoded
+    
+    Return : sheetfile as stream respponse
+    """
+    top_users_data = stats.get_top_users_stats()
+    stream = io.StringIO()
+
+    top_users_data.to_csv(stream)
+
+    response = StreamingResponse(iter([stream.getvalue()]),media_type="text/csv")
+
+    response.headers["Content-Disposition"] = "attachment; filename=coderhub_top10_data.csv"
+
+    return response
+
+@app.get("/rank1_file")
+def main():
+    """
+    
+    prepare top10 users sheet file to be downlaoded
+    
+    Return : sheetfile as stream respponse
+    """
+    top_users_data = stats.get_top_users_stats()
+    top_users_data = top_users_data.drop_duplicates(subset=['language'])
+    stream = io.StringIO()
+
+    top_users_data.to_csv(stream)
+
+    response = StreamingResponse(iter([stream.getvalue()]),media_type="text/csv")
+
+    response.headers["Content-Disposition"] = "attachment; filename=coderhub_rank1_data.csv"
+
+    return response

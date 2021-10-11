@@ -252,7 +252,7 @@ const Home = () => {
     
     const [selectedTable, setSelectedTable] = useState(0)
     
-    const vizOptionsLst = [<Card  className="slow-tran shadow p-2 shadow-lg rounded ">
+    const vizOptionsLst = [<Card  className="slow-tran shadow p-2 shadow-lg rounded">
                         <Row>
                             <Col xs={1}>
                             <Button variant="btn d-none d-md-block" onClick={handleVisibility}><i class="bi bi-arrows-fullscreen"></i></Button>
@@ -319,7 +319,7 @@ const Home = () => {
                 <Col lg={3} ml={1}>
                     <select className="form-select" onClick={handViewChang}>
                         <option value={0}>Top 10</option>
-                        <option value={1}>Top 1</option>  
+                        <option value={1}>Rank 1</option>  
                     </select>
                     { visibiliity && tables[selectedTable]}
                 </Col>

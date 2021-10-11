@@ -7,7 +7,7 @@ const Navbar = () => {
     const [visible, setVisible] = useState(false);
     return (
         <Container fluid>
-            <nav className = "navbar-1 mb-1">
+            <nav className = "navbar-1">
                 <Row>
                     <Col xs={10} md={6} lg={8}><h1>Analyse Coderhub</h1></Col>
 
@@ -37,6 +37,7 @@ const Navbar = () => {
                         </div>
                     }
                 </nav>
+                <hr></hr>
         </Container>
     );
 }
