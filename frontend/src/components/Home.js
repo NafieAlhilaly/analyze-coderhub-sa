@@ -233,7 +233,13 @@ const Home = () => {
         setSelectedLang(e.target.value);
     }
 
-    const bar_points = <Bar data={genPointsData()} />
+    const bar_points = <Bar data={genPointsData()} options= {
+        //Customize chart options
+        {responsive: true,
+        rotation:90,
+        maxRotation: 90
+        }
+      }/>
     const bar_challenges = <Bar data={genChallengesData()} />
 
     const plots = [bar_points, bar_challenges]
