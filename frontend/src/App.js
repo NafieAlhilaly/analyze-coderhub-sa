@@ -6,6 +6,7 @@ import Welcome from './components/welcome';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import NotFount from './components/NotFound';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route exact path="/downloads">
             <Downlaods/>
+          </Route>
+          <Route path="*">
+            <NotFount/>
           </Route>
         </Switch>
       </div>

@@ -3,6 +3,7 @@ import { plot } from "plotly.js";
 import { Card, Container, Button, Col, Row } from "react-bootstrap";
 import SimpleImageSlider from "react-simple-image-slider";
 import home_img from "../statics/imgs/home_scrn.jpg"
+import {Link} from "react-router-dom"
 
 const Welcome = () => {
     return (
