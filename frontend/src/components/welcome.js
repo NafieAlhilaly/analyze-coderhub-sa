@@ -13,7 +13,7 @@ const Welcome = () => {
                     <div className="p-2 ">
                         <Row>
                             <h1 className="large-text d-flex justify-content-center"><b>Get a wider angle</b></h1>
-                            <h5 className=" d-flex justify-content-center">Explore coderhub.sa leaderboard data in a better way and gain more insights</h5>
+                            <h5 className="sub-text d-flex justify-content-center">Explore coderhub.sa leaderboard data in a new way and gain more insights</h5>
                         </Row>
                     </div>
                     <div className="mt-2 d-flex justify-content-center mt-5 ">

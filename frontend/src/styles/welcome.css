@@ -7,10 +7,12 @@
     background-image: url("../statics/imgs/bg-image.jpg");
     background-repeat: no-repeat;
     background-size: 100% 80%;
+    
     height: 700px;
 }
 .welc-div {
     padding-top: 130px;
+    backdrop-filter: blur(5px);
 }
 
 .image {
@@ -19,7 +21,12 @@
 }
 
 .large-text {
-    font-size: 70px
+    
+    font-size: 70px;
+    color: #0076CF;
+}
+.sub-text {
+    color: #2F4858;
 }
 
 .start-btn {
