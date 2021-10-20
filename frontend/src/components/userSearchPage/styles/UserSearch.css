@@ -1,0 +1,13 @@
+.search-section {
+    height: 25%;
+    width: 60%;
+    border: 0.5px solid gray;
+    border-radius: 30px;
+    padding: 10px;
+
+}
+
+
+.search-section:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 35px 0px;
+}

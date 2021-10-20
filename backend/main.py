@@ -37,7 +37,7 @@ async def root():
     return top_users_data.to_dict()
 
 @app.get("/top10_file")
-def main():
+async def root():
     """
     
     prepare top10 users sheet file to be downlaoded
@@ -56,7 +56,7 @@ def main():
     return response
 
 @app.get("/rank1_file")
-def main():
+async def root():
     """
     
     prepare top10 users sheet file to be downlaoded
@@ -74,3 +74,28 @@ def main():
     response.headers["Content-Disposition"] = "attachment; filename=coderhub_rank1_data.csv"
 
     return response
+
+@app.get("/user_data/{username}")
+async def root(username):
+    try :
+        response = stats.get_user_stats(username)
+        return response.to_dict()
+    except:
+        response = "User not found or user profile is  private"
+        return response
+
+@app.get("/user_file/{username}")
+async def root(username):
+    try :
+        stream = io.StringIO()
+        user_data = stats.get_user_stats(username)
+        user_data.to_csv(stream)
+        
+        response = StreamingResponse(iter([stream.getvalue()]),media_type="text/csv")
+
+        response.headers["Content-Disposition"] = "attachment; filename=coderhub_rank1_data.csv"
+
+        return response
+    except:
+        response = "User not found or user profile is  private"
+        return response

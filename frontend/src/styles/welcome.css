@@ -16,7 +16,7 @@
 }
 
 .image {
-    border: black solid 1px;
+    border: black solid 0.5px;
     border-radius: 20px;
 }
 
@@ -40,7 +40,7 @@
     display: inline-block;
     font-size: 25px;
     margin: 4px 2px;
-    border-radius: 9px;
+    border-radius: 3px;
     border: 2px solid tomato;
 }
 

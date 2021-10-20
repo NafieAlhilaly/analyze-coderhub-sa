@@ -7,11 +7,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import NotFount from './components/NotFound';
+import UserSearch from './components/userSearchPage/parts/UserSearch';
 
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="App bg-color">
         <Navbar/>
         <Switch>
           <Route exact path="/">
@@ -19,6 +20,9 @@ function App() {
           </Route>
           <Route exact path="/home">
             <Home/>
+          </Route>
+          <Route exact path="/userSearch">
+            <UserSearch/>
           </Route>
           <Route exact path="/about">
             <About/>

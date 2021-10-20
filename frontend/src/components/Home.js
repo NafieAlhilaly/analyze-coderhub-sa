@@ -2,8 +2,7 @@ import { Col, Container, Row, Card, Button} from "react-bootstrap";
 import "../styles/home.css"
 import DataPlot from "./plots/plot"
 import { useEffect, useState } from 'react'
-import { Bar, Line, Doughnut} from 'react-chartjs-2';
-import Plot from "react-plotly.js";
+import { Bar, Doughnut} from 'react-chartjs-2';
 import Top10Table from './tables/Top10Table'
 import Top1Table from './tables/Top1Table'
 

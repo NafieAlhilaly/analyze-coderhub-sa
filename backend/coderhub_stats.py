@@ -222,3 +222,66 @@ class CoderHubStats(CoderHub):
 
         print(f"total time : {end_timer - start_timer} seconds")
         return leaderboard_datatable
+    
+    def get_user_stats(self, username: str): 
+        user_data = self.get_user_statistics(username=username)
+        total_solved_all_lang = user_data['total_solved_challenges']
+        total_points = []
+        user_lang = []
+
+        total_solved_per_programming_language = []
+        user_lang_data = []
+        easy_solved = []
+        medium_solved = []
+        hard_solved = []
+        total_solved = []
+
+
+        for data in user_data['total_solved_per_programming_language']:
+            user_lang.append(data['programming_language_name'])
+            total_solved_per_programming_language.append(data['total_solved'])
+
+
+        solved_per_language = {}
+        for language in user_lang:
+            solved_per_language[str(language)] = []
+
+        for language in user_lang:
+            current_lang_easy_solved = 0
+            current_lang_med_solved = 0
+            current_lang_hard_solved = 0
+            for data in user_data['programming_languages']:
+                if data['programming_language_name'] == language:
+                    if data['name'] == "سهل":
+                        current_lang_easy_solved += data['solved_challenges']
+                    elif data['name'] == "متوسط":
+                        current_lang_med_solved += data['solved_challenges']
+                    elif data['name'] == "صعب":
+                        current_lang_hard_solved += data['solved_challenges']
+            user_lang_data.append({f"{language}":   [current_lang_easy_solved,
+                                                            current_lang_med_solved,
+                                                            current_lang_hard_solved]})
+        for lang_data, lang in zip(user_lang_data, user_lang):
+            lang_data[str(lang)].append(sum(lang_data[str(lang)]))
+            lang_data[str(lang)].append(
+                (lang_data[str(lang)][0] * 5) +
+                (lang_data[str(lang)][1] * 10) +
+                (lang_data[str(lang)][2] * 20)
+            )
+
+        for lang, lang_data in zip(user_lang, user_lang_data):
+            easy_solved.append(lang_data[str(lang)][0])
+            medium_solved.append(lang_data[str(lang)][1])
+            hard_solved.append(lang_data[str(lang)][2])
+            total_solved.append(lang_data[str(lang)][3])
+            total_points.append(lang_data[str(lang)][4])
+
+        df = pd.DataFrame()
+        df.insert(0, 'language', user_lang)
+        df.insert(0, 'easy_solved', easy_solved)
+        df.insert(0, 'medium_solved', medium_solved)
+        df.insert(0, 'hard_solved', hard_solved)
+        df.insert(0, 'total_solved', total_solved)
+        df.insert(0, 'total_points', total_points)
+
+        return df
