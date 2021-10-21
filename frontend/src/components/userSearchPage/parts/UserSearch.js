@@ -3,7 +3,7 @@ import { Typography } from "@mui/material";
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import DisplayUserData from "./DisplayUserData";

@@ -4,10 +4,10 @@ import VizCard from "../cards/VizCard"
 import DunCard from "../cards/DunCard"
 import TableCard from "../cards/TableCard"
 import LangCard from "../cards/LangCard"
+import LangPointsCard from "../cards/LangPointsCard"
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import { Button } from '@material-ui/core'
 
 const DisplayUserData = ({languages, 
   easySolved,
@@ -60,7 +60,7 @@ const DisplayUserData = ({languages,
             {(languages && totalSolved && totalPoints) &&
             (<LangCard 
                 languages = {languages}
-                totalSolved = {totalSolved}
+                totalPoints = {totalPoints}
             />)}
           </Grid>
           <Grid
@@ -70,7 +70,11 @@ const DisplayUserData = ({languages,
             xl={3}
             xs={12}
           >
-            {/*<TotalProfit sx={{ height: '100%' }} />*/}
+            {(languages && totalSolved && totalPoints) &&
+            (<LangPointsCard 
+                languages = {languages}
+                totalPoints = {totalPoints}
+            />)}
           </Grid>
           <Grid
             item
@@ -103,18 +107,9 @@ const DisplayUserData = ({languages,
           </Grid>
           <Grid
             item
-            lg={4}
+            lg={8}
             md={6}
-            xl={3}
-            xs={12}
-          >
-            {/*<LatestProducts sx={{ height: '100%' }} />*/}
-          </Grid>
-          <Grid
-            item
-            lg={12}
-            md={12}
-            xl={12}
+            xl={9}
             xs={12}
           >
             {( languages, easySolved, mediumSolved,
@@ -127,6 +122,15 @@ const DisplayUserData = ({languages,
                 totalSolved = {totalSolved}
                 totalPoints = {totalPoints}
               />)}
+          </Grid>
+          <Grid
+            item
+            lg={12}
+            md={12}
+            xl={12}
+            xs={12}
+          >
+            {/* */}
           </Grid>
           <Grid
             item

@@ -4,16 +4,13 @@ import {
     Grid,
     Typography
   } from '@material-ui/core';
-
-  const TotalSolvedCard = ({totalSolved}) => (
-    <Card
-      sx={{ height: '100%' }}
-    >
+  
+  const LangPointsCard = ({totalPoints}) => (
+    <Card >
       <CardContent>
         <Grid
           container
-          spacing={3}
-          sx={{ justifyContent: 'space-between' }}
+          spacing={1}
         >
           <Grid item>
             <Typography
@@ -21,13 +18,13 @@ import {
               gutterBottom
               variant="h6"
             >
-              SOLVED CHALLENGES
+              TOP LANGUAGE POINTS
             </Typography>
             <Typography
               color="textPrimary"
               variant="h3"
             >
-              {(totalSolved) && (totalSolved[0].reduce((a, b) => a + b))}
+              {totalPoints[0][totalPoints[0].indexOf(Math.max(...totalPoints[0]))]}
             </Typography>
           </Grid>
         </Grid>
@@ -35,4 +32,4 @@ import {
     </Card>
   );
   
-  export default TotalSolvedCard;
+  export default LangPointsCard;

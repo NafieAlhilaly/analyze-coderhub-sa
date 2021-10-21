@@ -180,6 +180,10 @@ class CoderHub:
         else:
             return data
 
+    def get_user_id(self, username : str) -> str:
+        user_id = self.get_profile(username=username)["user_information"]["id"]
+        return user_id
+
     def get_user_statistics(self, username: str) -> dict:
         """ارجاع إحصائيات المستخدم
 
@@ -192,3 +196,6 @@ class CoderHub:
         user_id = self.get_profile(username=username)["user_information"]["id"]
         data = requests.get(self.user_statistics.format(user_id)).json()
         return data
+
+cd = CoderHub()
+print(cd.get_user_id("nafiealhelaly"))

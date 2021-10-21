@@ -9,6 +9,7 @@ import pandas as pd
 import time
 from coderhub import CoderHub
 import threading
+import requests
 
 
 class CoderHubStats(CoderHub):
@@ -222,10 +223,18 @@ class CoderHubStats(CoderHub):
 
         print(f"total time : {end_timer - start_timer} seconds")
         return leaderboard_datatable
-    
+
+    def get_user_total_points(self, username:str):
+        user_id = self.get_user_id(username)
+        total_points = requests.get(f"https://api.coderhub.sa/api/profile/get-user-points/{user_id}").json()
+        return total_points
+
+
     def get_user_stats(self, username: str): 
         user_data = self.get_user_statistics(username=username)
         total_solved_all_lang = user_data['total_solved_challenges']
+        total_points_data = self.get_user_total_points(username)
+        
         total_points = []
         user_lang = []
 
@@ -240,6 +249,13 @@ class CoderHubStats(CoderHub):
         for data in user_data['total_solved_per_programming_language']:
             user_lang.append(data['programming_language_name'])
             total_solved_per_programming_language.append(data['total_solved'])
+
+        for lang in user_lang:
+            for points in total_points_data:
+                if points['langauge_name'] == str(lang):
+                    lang_points = points["points"]
+                    total_points.append(lang_points)
+        print(total_points)
 
 
         solved_per_language = {}
@@ -274,7 +290,6 @@ class CoderHubStats(CoderHub):
             medium_solved.append(lang_data[str(lang)][1])
             hard_solved.append(lang_data[str(lang)][2])
             total_solved.append(lang_data[str(lang)][3])
-            total_points.append(lang_data[str(lang)][4])
 
         df = pd.DataFrame()
         df.insert(0, 'language', user_lang)
@@ -285,3 +300,6 @@ class CoderHubStats(CoderHub):
         df.insert(0, 'total_points', total_points)
 
         return df
+
+cs = CoderHubStats()
+print(cs.get_user_stats("nafiealhelaly"))

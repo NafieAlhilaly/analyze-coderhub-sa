@@ -1,12 +1,11 @@
 import {
-    Avatar,
     Card,
     CardContent,
     Grid,
     Typography
   } from '@material-ui/core';
   
-  const LangCard = ({languages, totalSolved}) => (
+  const LangCard = ({languages, totalPoints}) => (
     <Card >
       <CardContent>
         <Grid
@@ -25,7 +24,7 @@ import {
               color="textPrimary"
               variant="h3"
             >
-              {languages[0][totalSolved[0].indexOf(Math.max(...totalSolved[0]))]}
+              {languages[0][totalPoints[0].indexOf(Math.max(...totalPoints[0]))]}
             </Typography>
           </Grid>
         </Grid>

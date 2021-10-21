@@ -5,7 +5,6 @@ import {
   CardContent,
   CardHeader,
   Divider,
-  Typography,
   colors,
   useTheme
 } from '@material-ui/core';
