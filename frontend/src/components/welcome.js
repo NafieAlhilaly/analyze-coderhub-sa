@@ -1,6 +1,7 @@
 import "../styles/welcome.css"
 import { Col, Row } from "react-bootstrap";
 import home_img from "../statics/imgs/home_scrn.jpg"
+import { Link } from "react-router-dom";
 
 const Welcome = () => {
     return (
@@ -56,7 +57,7 @@ const Welcome = () => {
                 </Row>
             </div>
             <section className="mt-4 d-flex justify-content-center">
-                <a href="/home" className ="start-btn">Get started</a>
+                <Link to="/home" className ="start-btn">Get started</Link>
             </section>
             <hr></hr>
             <footer className="mt-4 d-flex justify-content-center">
