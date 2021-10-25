@@ -50,7 +50,7 @@ const Welcome = () => {
                     <article className="p-2">
                         <h3 className="d-flex justify-content-center"><b>Search by username</b></h3>
                         <div className="d-flex justify-content-center">
-                        <p>Soon</p>
+                        <p>Search for user by username</p>
                         </div>
                     </article>
                     </Col>
